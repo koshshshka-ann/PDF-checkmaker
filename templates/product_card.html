@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карточка товара</title>
+</head>
+<body>
+    <div class="header">Карточка товара</div>
+    <table>
+        <tr><th>Поле</th><th>Значение</th></tr>
+        <tr><td>ID</td><td>{{ id }}</td></tr>
+        <tr><td>Название</td><td>{{ name }}</td></tr>
+        <tr><td>Цена</td><td>{{ price }} ₽</td></tr>
+        <tr><td>Категория</td><td>{{ category }}</td></tr>
+        <tr><td>На складе</td><td>{{ stock }} шт.</td></tr>
+    </table>
+    <div class="footer">Сгенерировано: {{ date }}</div>
+</body>
+</html>

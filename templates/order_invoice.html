@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Счёт-накладная</title>
+    <style>
+        body { font-family: 'DejaVu Sans', sans-serif; margin: 20px; background: #fff; }
+        .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #007acc; padding-bottom: 10px; }
+        .header h1 { color: #007acc; margin: 0; font-size: 1.6em; }
+        .info div { margin-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 11pt; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .total { text-align: right; font-size: 1.2em; font-weight: bold; color: #007acc; margin-top: 20px; }
+        .footer { margin-top: 40px; text-align: center; color: #777; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>СЧЁТ-НАКЛАДНАЯ №{{ invoice_id }}</h1>
+    </div>
+
+    <div class="info">
+        <div><strong>Поставщик:</strong> ООО "ТехноРесурс"</div>
+        <div><strong>Покупатель:</strong> {{ customer_name }}</div>
+        <div><strong>Дата:</strong> {{ date }}</div>
+        <div><strong>Метод оплаты:</strong> {{ payment_method }}</div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Наименование</th>
+                <th>Категория</th>
+                <th>Цена, ₽</th>
+                <th>Кол-во</th>
+                <th>Сумма, ₽</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ table_rows }}
+        </tbody>
+    </table>
+
+    <div class="total">
+        ИТОГО к оплате: {{ grand_total }} ₽
+    </div>
+
+    <div class="footer">
+        Счёт сгенерирован автоматически. Подпись не требуется.
+    </div>
+</body>
+</html>
